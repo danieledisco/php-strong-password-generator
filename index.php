@@ -45,7 +45,7 @@ include __DIR__ . '/functions.php';
 
 <body>
     <div class="container">
-        <form action="" type="get">
+        <form action="" method="get">
             <label for="lengthpw">Password Length</label>
             <input type="number" name="lengthpw" id="lengthpw" placeholder="Type here the length of password">
             <button type="submit">Send</button>
