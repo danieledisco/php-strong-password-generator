@@ -28,16 +28,7 @@ $password .=  $characters[69];
 
 echo $password; */
 
-function generatePassword($length)
-{
-    $characters = 'abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ@#$%?!';
-    $password = '';
-    $len = strlen($characters);
-    for ($i = 0; $i < $length; $i++) {
-        $password .= $characters[random_int(0, $len - 1)];
-    }
-    return $password;
-}
+include __DIR__ . '/functions.php';
 
 
 ?>
