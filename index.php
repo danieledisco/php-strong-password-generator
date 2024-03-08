@@ -11,8 +11,33 @@
  * random_in()
  */
 
-$characters = ['abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ@#£$%?!'];
 
+
+/* 
+Verifiche
+echo strlen($characters);
+echo $characters[0];
+echo $characters[1];
+echo $characters[2];
+echo $characters[3];
+echo '<br>';
+
+$password .=  $characters[2];
+$password .=  $characters[45];
+$password .=  $characters[69];
+
+echo $password; */
+
+function generatePassword($length)
+{
+    $characters = 'abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ@#$%?!';
+    $password = '';
+    $len = strlen($characters);
+    for ($i = 0; $i < $length; $i++) {
+        $password .= $characters[random_int(0, $len - 1)];
+    }
+    return $password;
+}
 
 
 ?>
@@ -24,11 +49,25 @@ $characters = ['abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ@#
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>php-strong-password-generator</title>
 </head>
 
 <body>
-
+    <div class="container">
+        <form action="" type="get">
+            <label for="lengthpw">Password Length</label>
+            <input type="number" name="lengthpw" id="lengthpw" placeholder="Type here the length of password">
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <div class="div">
+        <?php if (!empty($_GET)) : ?>
+            <h3>New passwod is:</h3>
+            <?php $password = generatePassword($_GET['lengthpw']);
+            echo $password
+            ?>
+        <?php endif ?>
+    </div>
 </body>
 
 </html>
