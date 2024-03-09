@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 /**
  * Logica da implementare:
  * 0 - Definiamo lunghezza della password
@@ -54,8 +54,14 @@ include __DIR__ . '/functions.php';
     <div class="div">
         <?php if (!empty($_GET)) : ?>
             <h3>New passwod is:</h3>
+
             <?php $password = generatePassword($_GET['lengthpw']);
-            echo $password
+            // clear old session
+            session_unset();
+
+            $_SESSION['password'] = $password;
+            // redirect the user to a success page
+            header('Location: ./show_password.php');
             ?>
         <?php endif ?>
     </div>
