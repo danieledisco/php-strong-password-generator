@@ -19,5 +19,5 @@ Invece di visualizzare la password nella index, effettuare un redirect ad una pa
 
 * Milestone 4 (BONUS)
 Gestire ulteriori parametri per la password: quali 
-### scegliere caratteri: numeri e/o lettere e/o simboli. 
-### accettare o rifiutare ripetizione dello stesso carattere.
+   * scegliere caratteri: numeri e/o lettere e/o simboli. 
+   * accettare o rifiutare ripetizione dello stesso carattere.
