@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*:root {
+        --stg-pwd-light: white;
+    --stg-pwd-dark: black;
+    --stg-pwd-bgc-container: aquamarine;
+    --stg-pwd-bgc-body: lightgray; 
+}
+*/
+body {
+    /*     background-color: var(--stg-pwd-bgc-body); */
+    font-family: sans-serif;
+}
+
+.container {
+    margin-top: 5rem;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--stg-pwd-bgc-container);
+    border: 5px solid black;
+}
+
+/* .container_length {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+} */
+
+/* .container_type {
+    margin: 2rem;
+    display: flex;
+    justify-content: flex-start;
+} */
+
+/* .checkBoxs {
+    margin-left: -5rem;
+}
+ */
+
+/* form {
+    width: 30%;
+}
+ */
+/* label {
+    padding: 1.5rem;
+}
+
+input {
+    padding: 1.5rem;
+    margin: 0.5rem;
+} */
