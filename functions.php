@@ -9,9 +9,47 @@
  */
 function generatePassword($length)
 {
-    $characters = 'abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ@#$%?!';
+    /*    if (isset($_GET['letters'])) {
+        echo 'letters';
+        echo '<br>';
+    }
+
+    if (isset($_GET['numbers'])) {
+        echo "numbers";
+        echo '<br>';
+    }
+
+    if (isset($_GET['symbols'])) {
+        echo "symbols";
+        echo '<br>';
+    } */
+
+    $letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $numbers = '0123456789';
+    $symbols = '@#$%?!_.';
+
+    /* Costruzione dell'insieme dei caratteri sulla base degli input */
+    /* Bisogna gestire il caso in cui non sia stato selezionato neanche un campo */
+    $characters = '';
+    if (isset($_GET['letters'])) {
+        $characters .= $letters;
+    }
+    if (isset($_GET['numbers'])) {
+        $characters .= $numbers;
+    }
+    if (isset($_GET['symbols'])) {
+        $characters .= $symbols;
+    }
+
+
+
     $password = '';
     $len = strlen($characters);
+    if ($len == 0) {
+        $password = -1;
+        return $password;
+    }
+
     for ($i = 0; $i < $length; $i++) {
         $password .= $characters[random_int(0, $len - 1)];
     }

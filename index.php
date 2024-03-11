@@ -48,8 +48,8 @@ include __DIR__ . '/functions.php';
     <div class="container">
         <form action="" method="get">
             <div class="container_length">
-                <label for="lengthpw">Password Length</label><input type="number" name="lengthpw" min="1" id="lengthpw" placeholder="Length of password?">
-
+                <h3><label for="lengthpw">Password Length</label><input type="number" name="lengthpw" min="1" id="lengthpw" placeholder="Length of password?">
+                </h3>
             </div>
 
             <div class="container_type">
@@ -68,20 +68,26 @@ include __DIR__ . '/functions.php';
 
             <button type="submit">Send</button>
         </form>
-    </div>
-    <div class="div">
-        <?php if ($_GET['lengthpw'] > 0) : ?>
 
-            <?php $password = generatePassword($_GET['lengthpw']);
+        <?php if (isset($_GET['lengthpw']) && $_GET['lengthpw'] > 0) {
+            $password = generatePassword($_GET['lengthpw']);
             // clear old session
             session_unset();
+            if ($password == -1) {
+                $_SESSION['error'] = 'Selezionare almeno un campo tra lettere, numeri e simboli';
+                header('Location: ./show_password.php');
+            } else {
+                $_SESSION['password'] = $password;
+                header('Location: ./show_password.php');
+            }
+        }
+        // redirect the user to a success page
+        ?>
 
-            $_SESSION['password'] = $password;
-            // redirect the user to a success page
-            header('Location: ./show_password.php');
-            ?>
-        <?php endif ?>
+
     </div>
+
+
 </body>
 
 </html>
