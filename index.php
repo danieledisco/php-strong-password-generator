@@ -62,9 +62,15 @@ include __DIR__ . '/functions.php';
                     <label for="symbols">Simboli</label><input type="checkbox" name="symbols" id="simbols">
                 </div>
             </div>
-
-
-
+            <div class="container_repet">
+                <h3>Ripetizione o meno stesso carattere</h3>
+                <div class="radioButton">
+                    <label for="repYes">Caratteri Ripetuti</label><input type="radio" name="repYesNo" id="repYes" value="repYes" checked="checked">
+                    <br>
+                    <label for="repNo">Caratteri Unici</label><input type="radio" name="repYesNo" id="repNo" value="repNo">
+                    <br>
+                </div>
+            </div>
 
             <button type="submit">Send</button>
         </form>
@@ -75,11 +81,10 @@ include __DIR__ . '/functions.php';
             session_unset();
             if ($password == -1) {
                 $_SESSION['error'] = 'Selezionare almeno un campo tra lettere, numeri e simboli';
-                header('Location: ./show_password.php');
             } else {
                 $_SESSION['password'] = $password;
-                header('Location: ./show_password.php');
             }
+            header('Location: ./show_password.php');
         }
         // redirect the user to a success page
         ?>

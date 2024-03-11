@@ -51,7 +51,13 @@ function generatePassword($length)
     }
 
     for ($i = 0; $i < $length; $i++) {
-        $password .= $characters[random_int(0, $len - 1)];
+        $c = $characters[random_int(0, $len - 1)];
+        if ($_GET['repYesNo'] === 'repNo') {
+            while (stristr($password, $c)) {
+                $c = $characters[random_int(0, $len - 1)];
+            }
+        }
+        $password .= $c;
     }
     return $password;
 }
